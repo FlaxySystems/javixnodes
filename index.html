@@ -3,32 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavixNodes | Next-Gen Hosting</title>
-    <link rel="shortcut icon" href="https://cdn.discordapp.com/icons/1452511757426888796/c1f3808bc6115a73a216918c212ac78d.png?size=1024" type="image/x-icon">
+    <title>JavixNodes | Premium Hosting Solutions</title>
+    <link rel="icon" href="https://cdn.discordapp.com/icons/1452511757426888796/c1f3808bc6115a73a216918c212ac78d.png?size=1024" type="image/png">
     
-    <!-- Fonts: Kanit (Headings) & Inter (Body) -->
+    <!-- Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Kanit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome Icons -->
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            /* Neon Palette */
-            --neon-green: #00ff88;
-            --neon-aqua: #00d4ff;
-            --neon-purple: #9d00ff;
-            --bg-dark: #030303;
-            --bg-card: rgba(20, 20, 20, 0.6);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --text-main: #ffffff;
-            --text-muted: #a1a1aa;
-            
-            /* Gradients */
-            --gradient-main: linear-gradient(135deg, var(--neon-green), var(--neon-aqua));
-            --gradient-text: linear-gradient(90deg, var(--neon-green), var(--neon-aqua));
+            /* Refined Professional Palette */
+            --primary: #3b82f6; /* Royal Blue */
+            --primary-dark: #1d4ed8;
+            --secondary: #6366f1; /* Indigo */
+            --bg-dark: #0f172a; /* Slate 900 */
+            --bg-card: #1e293b; /* Slate 800 */
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --gradient: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+            --grid-color: rgba(59, 130, 246, 0.05);
         }
 
         * {
@@ -41,95 +39,57 @@
         body {
             background-color: var(--bg-dark);
             color: var(--text-main);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Poppins', sans-serif;
             overflow-x: hidden;
-            /* Ambient Background Mesh */
+            line-height: 1.7;
+        }
+
+        /* Tech Grid Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
             background-image: 
-                radial-gradient(circle at 15% 50%, rgba(0, 255, 136, 0.05), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(0, 212, 255, 0.05), transparent 25%);
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -2;
+            pointer-events: none;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Kanit', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        /* Ambient Glow */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.08), transparent 40%);
+            z-index: -1;
+            pointer-events: none;
         }
 
-        a { text-decoration: none; transition: 0.3s; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        .container {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
         /* Utility */
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 25px;
-        }
-
         .text-gradient {
-            background: var(--gradient-text);
+            background: var(--gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 32px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-family: 'Kanit', sans-serif;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--gradient-main);
-            color: #000;
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 0 40px rgba(0, 255, 136, 0.5);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--neon-green);
-            color: var(--neon-green);
-        }
-
-        .btn-secondary:hover {
-            background: var(--neon-green);
-            color: #000;
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
-        }
-
-        /* Top Bar */
-        .top-bar {
-            background: rgba(0,0,0,0.8);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 8px 0;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            backdrop-filter: blur(5px);
-        }
-        .top-bar span { color: var(--neon-green); font-weight: bold; }
 
         /* Navbar */
         header {
             position: sticky;
             top: 0;
             z-index: 1000;
-            background: rgba(3, 3, 3, 0.8);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--glass-border);
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
             padding: 15px 0;
         }
 
@@ -140,402 +100,325 @@
         }
 
         .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 1.8rem;
-            font-weight: 800;
-            font-family: 'Kanit', sans-serif;
-            color: #fff;
-        }
-        
-        .logo img {
-            width: 45px;
-            height: 45px;
-            border-radius: 8px;
-            border: 1px solid var(--neon-green);
-            box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+            gap: 10px;
+            letter-spacing: -0.5px;
         }
 
-        .nav-links {
+        .logo img {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        nav ul {
             display: flex;
             gap: 35px;
+            list-style: none;
         }
 
-        .nav-links a {
+        nav a {
             color: var(--text-muted);
             font-weight: 500;
-            position: relative;
+            font-size: 0.95rem;
         }
 
-        .nav-links a:hover, .nav-links a.active {
+        nav a:hover { color: var(--primary); }
+
+        .nav-btns { display: flex; gap: 15px; }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 26px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
             color: #fff;
+            border: none;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25);
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background: var(--neon-aqua);
-            transition: 0.3s;
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .header-actions {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn-panel {
+        .btn-outline {
             background: transparent;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid var(--border-color);
             color: #fff;
-            padding: 10px 20px;
-            font-size: 0.9rem;
         }
-        
-        .btn-panel:hover {
-            border-color: var(--neon-aqua);
-            color: var(--neon-aqua);
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: rgba(59, 130, 246, 0.05);
         }
 
         /* Hero Section */
         .hero {
             padding: 140px 0 100px;
+            text-align: center;
             position: relative;
-            overflow: hidden;
         }
 
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 50px;
-        }
-
-        .hero-content h1 {
-            font-size: 4rem;
+        .hero h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            margin-bottom: 24px;
             line-height: 1.1;
-            margin-bottom: 20px;
+            letter-spacing: -1px;
         }
 
-        .hero-content p {
-            font-size: 1.2rem;
+        .hero p {
+            font-size: 1.15rem;
             color: var(--text-muted);
-            margin-bottom: 35px;
-            max-width: 500px;
-            line-height: 1.6;
+            max-width: 650px;
+            margin: 0 auto 40px;
         }
 
-        .hero-stats {
-            display: flex;
-            gap: 40px;
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 1px solid var(--glass-border);
-        }
-
-        .stat h3 { font-size: 2.5rem; color: var(--neon-aqua); }
-        .stat span { color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
-
-        .hero-visual {
-            position: relative;
+        .hero-btns {
             display: flex;
             justify-content: center;
+            gap: 20px;
         }
-
-        .floating-card {
-            background: var(--bg-card);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 25px;
-            width: 350px;
-            position: relative;
-            animation: float 6s ease-in-out infinite;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .server-status {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        .status-dot { width: 10px; height: 10px; background: var(--neon-green); border-radius: 50%; box-shadow: 0 0 10px var(--neon-green); }
-        
-        .stat-row { display: flex; justify-content: space-between; margin-bottom: 10px; color: var(--text-muted); font-size: 0.9rem; }
-        .stat-val { color: #fff; font-weight: bold; }
 
         /* Features */
-        .section-title {
+        .features { padding: 80px 0; }
+        
+        .section-header {
             text-align: center;
             margin-bottom: 60px;
         }
-        .section-title h2 { font-size: 2.5rem; margin-bottom: 15px; }
-        .section-title p { color: var(--text-muted); }
+        .section-header h2 { font-size: 2.4rem; margin-bottom: 12px; }
+        .section-header p { color: var(--text-muted); font-weight: 500; }
 
-        .features-grid {
+        .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 30px;
         }
 
         .feature-card {
             background: var(--bg-card);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            padding: 30px;
+            padding: 35px;
             border-radius: 16px;
+            border: 1px solid var(--border-color);
             transition: 0.3s;
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
-            border-color: var(--neon-green);
-            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.05);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .feature-icon {
-            font-size: 2rem;
-            color: var(--neon-aqua);
+            width: 55px;
+            height: 55px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.4rem;
             margin-bottom: 20px;
-            display: inline-block;
-            padding: 10px;
-            background: rgba(0, 212, 255, 0.1);
-            border-radius: 10px;
         }
 
-        /* Pricing / Plans */
-        .pricing { padding: 100px 0; }
+        .feature-card h3 { font-size: 1.25rem; margin-bottom: 10px; }
+        .feature-card p { color: var(--text-muted); font-size: 0.9rem; }
 
-        .tabs-container {
+        /* Pricing */
+        .pricing { padding: 80px 0; }
+
+        .tabs {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
             margin-bottom: 50px;
             flex-wrap: wrap;
         }
 
         .tab-btn {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--glass-border);
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
             color: var(--text-muted);
-            padding: 12px 28px;
+            padding: 12px 24px;
             border-radius: 50px;
             cursor: pointer;
             font-weight: 600;
-            font-family: 'Kanit', sans-serif;
+            font-size: 0.95rem;
             transition: 0.3s;
         }
 
-        .tab-btn:hover { color: #fff; border-color: rgba(255,255,255,0.3); }
-        
-        .tab-btn.active {
-            background: var(--gradient-main);
-            color: #000;
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--gradient);
+            color: #fff;
             border-color: transparent;
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
         }
 
         .tab-content {
             display: none;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 30px;
-            animation: fadeIn 0.5s ease-out;
+            animation: fadeIn 0.5s ease;
         }
-        
         .tab-content.active { display: grid; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
         .plan-card {
-            background: rgba(20, 20, 20, 0.4);
-            backdrop-filter: blur(15px);
-            border: 1px solid var(--glass-border);
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
             border-radius: 20px;
             padding: 35px;
             position: relative;
-            transition: 0.4s;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
+            transition: 0.3s;
+            overflow: hidden;
+        }
+
+        /* Popular/Recommended Badge */
+        .badge-pop {
+            position: absolute;
+            top: 0; right: 0;
+            background: var(--primary);
+            color: #fff;
+            padding: 6px 18px;
+            border-bottom-left-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .plan-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--neon-aqua);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.1);
+            transform: translateY(-8px);
+            border-color: var(--secondary);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
         }
 
-        .plan-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient-main);
-            opacity: 0;
-            transition: 0.3s;
-        }
-
-        .plan-card:hover::before { opacity: 1; }
-
-        .plan-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(0, 255, 136, 0.15);
-            color: var(--neon-green);
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 5px 12px;
-            border-radius: 4px;
-            border: 1px solid rgba(0, 255, 136, 0.3);
-        }
-
-        .plan-header { margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 20px; }
+        .plan-header { margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid var(--border-color); }
+        .plan-name { font-size: 1.5rem; font-weight: 700; margin-bottom: 5px; color: #fff; }
         
-        .plan-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 5px; }
-        
-        .plan-price { font-size: 2.2rem; font-weight: 800; color: #fff; margin: 10px 0; }
+        .plan-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin: 15px 0;
+        }
         .plan-price span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
 
         .plan-features { list-style: none; margin-bottom: 30px; flex-grow: 1; }
         .plan-features li {
-            margin-bottom: 15px;
-            color: #ccc;
+            margin-bottom: 14px;
+            color: var(--text-muted);
             display: flex;
-            align-items: center;
-            gap: 10px;
+            align-items: flex-start;
+            gap: 12px;
             font-size: 0.95rem;
         }
-        .plan-features li i { color: var(--neon-green); }
+        .plan-features li i { color: var(--primary); margin-top: 4px; }
 
         .btn-full { width: 100%; justify-content: center; }
 
+        /* Web Hosting Special Card Styles */
+        .web-card {
+            border-top: 4px solid var(--secondary);
+        }
+
+        .web-features-grid {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        .web-feat-item {
+            background: rgba(255,255,255,0.03);
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-muted);
+        }
+        .web-feat-item i { color: var(--secondary); }
+
         /* Founders */
-        .founders { padding: 100px 0; background: linear-gradient(to top, #000, #050505); }
-        .founders-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+        .founders { padding: 80px 0; background: rgba(0,0,0,0.2); }
+        
+        .founder-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
 
         .founder-card {
             background: var(--bg-card);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            padding: 40px;
-            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 35px;
             text-align: center;
-            width: 300px;
+            width: 280px;
             transition: 0.3s;
         }
 
-        .founder-card:hover { border-color: var(--neon-purple); transform: scale(1.03); }
+        .founder-card:hover { border-color: var(--primary); transform: translateY(-5px); }
 
         .founder-img {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--neon-purple);
-            padding: 4px;
             margin-bottom: 20px;
-            box-shadow: 0 0 20px rgba(157, 0, 255, 0.3);
+            object-fit: cover;
+            border: 3px solid var(--bg-dark);
+            box-shadow: 0 0 0 2px var(--primary);
         }
 
         /* Footer */
         footer {
-            padding: 80px 0 30px;
-            border-top: 1px solid var(--glass-border);
+            padding: 70px 0 30px;
+            border-top: 1px solid var(--border-color);
             text-align: center;
+            background: #020617;
         }
 
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
+        .footer-content { margin-bottom: 40px; }
+        .footer-links { margin-bottom: 25px; }
+        .footer-links a { color: var(--text-muted); margin: 0 20px; font-size: 0.95rem; }
+        .footer-links a:hover { color: var(--primary); }
+        .email-text { color: #fff; font-size: 1.1rem; display: block; margin-bottom: 25px; font-weight: 500;}
+        
+        .copyright { color: #475569; font-size: 0.9rem; }
 
-        .social-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .social-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 1.2rem;
-            transition: 0.3s;
-            border: 1px solid var(--glass-border);
-        }
-
-        .social-btn:hover {
-            background: var(--neon-green);
-            color: #000;
-            transform: translateY(-3px);
-            box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
-        }
-
-        .email-link {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .email-link:hover { color: var(--neon-aqua); }
-
-        /* Mobile */
         @media (max-width: 768px) {
-            .hero-grid { grid-template-columns: 1fr; text-align: center; }
-            .hero-stats { justify-content: center; }
-            .hero-content h1 { font-size: 2.8rem; }
-            .nav-links, .header-actions { display: none; }
-            .mobile-menu-btn { display: block; font-size: 1.5rem; cursor: pointer; color: #fff; }
-            
-            .nav-links.active {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: #000;
-                padding: 30px;
-                border-bottom: 1px solid var(--neon-green);
-            }
-            .nav-links.active .btn { display: inline-flex; justify-content: center; }
+            .hero h1 { font-size: 2.6rem; }
+            .nav-wrapper nav, .nav-btns { display: none; }
+            .mobile-toggle { display: block; font-size: 1.5rem; color: #fff; cursor: pointer; }
+            .hero-btns { flex-direction: column; }
+            .web-features-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Top Bar -->
-    <div class="top-bar">
-        🚀 New plans available! <span>Join Discord</span> for exclusive offers.
-    </div>
 
     <!-- Header -->
     <header>
@@ -545,22 +428,23 @@
                 Javix<span class="text-gradient">Nodes</span>
             </a>
 
-            <nav class="nav-links">
-                <a href="#hero" class="active">Home</a>
-                <a href="#features">Features</a>
-                <a href="#plans">Pricing</a>
-                <a href="#founders">Founders</a>
-                <a href="mailto:himanshugurjar@zohomail.in">Contact</a>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#plans">Pricing</a></li>
+                    <li><a href="#founders">Founders</a></li>
+                </ul>
             </nav>
 
-            <div class="header-actions">
-                <a href="https://panel.javixnode.fun" target="_blank" class="btn btn-panel">Panel Login</a>
+            <div class="nav-btns">
+                <a href="https://panel.javixnode.fun" target="_blank" class="btn btn-outline">Login</a>
                 <a href="https://discord.gg/VQcqHQsnv4" target="_blank" class="btn btn-primary">
-                    <i class="fab fa-discord"></i> Join Discord
+                    <i class="fab fa-discord"></i> Join
                 </a>
             </div>
 
-            <div class="mobile-menu-btn">
+            <div class="mobile-toggle">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
@@ -568,64 +452,19 @@
 
     <!-- Hero -->
     <section class="hero" id="hero">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <h1>Unleash Your<br><span class="text-gradient">Full Potential</span></h1>
-                <p>
-                    High-performance Minecraft & VPS hosting without breaking the bank. 
-                    Powered by Ryzen 9 & AMD with 99.9% Uptime.
-                </p>
-                <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: inherit;">
-                    <a href="https://discord.gg/VQcqHQsnv4" target="_blank" class="btn btn-primary">
-                        <i class="fas fa-rocket"></i> Start Free
-                    </a>
-                    <a href="https://discord.gg/VQcqHQsnv4" target="_blank" class="btn btn-secondary">
-                        <i class="fas fa-shopping-cart"></i> Buy Server
-                    </a>
-                </div>
-
-                <div class="hero-stats">
-                    <div class="stat">
-                        <h3>99.9%</h3>
-                        <span>Uptime</span>
-                    </div>
-                    <div class="stat">
-                        <h3>24/7</h3>
-                        <span>Support</span>
-                    </div>
-                    <div class="stat">
-                        <h3>Low</h3>
-                        <span>Latency</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hero-visual">
-                <div class="floating-card">
-                    <div class="server-status">
-                        <div class="status-dot"></div>
-                        <span style="font-weight: 600;">Server Online</span>
-                        <span style="margin-left: auto; color: var(--neon-aqua); font-size: 0.8rem;">Minecraft 1.20.4</span>
-                    </div>
-                    <div class="stat-row">
-                        <span>CPU Usage</span>
-                        <span class="stat-val">12% <span style="color:var(--neon-green); font-size: 0.8rem;">▼</span></span>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.1); height: 6px; border-radius: 3px; margin-bottom: 15px;">
-                        <div style="background: var(--neon-green); width: 12%; height: 100%; border-radius: 3px; box-shadow: 0 0 10px var(--neon-green);"></div>
-                    </div>
-                    <div class="stat-row">
-                        <span>RAM Usage</span>
-                        <span class="stat-val">4.2GB / 16GB</span>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.1); height: 6px; border-radius: 3px; margin-bottom: 15px;">
-                        <div style="background: var(--neon-aqua); width: 26%; height: 100%; border-radius: 3px; box-shadow: 0 0 10px var(--neon-aqua);"></div>
-                    </div>
-                    <div class="stat-row">
-                        <span>TPS</span>
-                        <span class="stat-val">20.0</span>
-                    </div>
-                </div>
+        <div class="container">
+            <h1>Premium Hosting <br> <span class="text-gradient">Without Limits</span></h1>
+            <p>
+                High-performance Minecraft, VPS, and Web Hosting designed for gamers and developers. 
+                Reliable, secure, and affordable.
+            </p>
+            <div class="hero-btns">
+                <a href="https://discord.gg/VQcqHQsnv4" target="_blank" class="btn btn-primary">
+                    Get Started <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#plans" class="btn btn-outline">
+                    View Plans
+                </a>
             </div>
         </div>
     </section>
@@ -633,30 +472,30 @@
     <!-- Features -->
     <section class="features" id="features">
         <div class="container">
-            <div class="section-title">
-                <h2>Why Choose <span class="text-gradient">JavixNodes?</span></h2>
-                <p>Engineered for speed, built for reliability.</p>
+            <div class="section-header">
+                <h2>Why Choose Us?</h2>
+                <p>We provide infrastructure you need to succeed.</p>
             </div>
-            <div class="features-grid">
+            <div class="feature-grid">
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-microchip"></i></div>
-                    <h3>Ryzen 9 Power</h3>
-                    <p style="color:var(--text-muted); margin-top:10px; font-size: 0.9rem;">Experience lightning-fast performance with our high-frequency Ryzen 9 processors.</p>
+                    <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Fast Performance</h3>
+                    <p>Powered by Ryzen 9 & AMD processors for zero lag.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-globe-asia"></i></div>
-                    <h3>Global Locations</h3>
-                    <p style="color:var(--text-muted); margin-top:10px; font-size: 0.9rem;">Low latency hosting in 🇮🇳 India, 🇸🇬 Singapore, and 🇺🇸 USA.</p>
+                    <div class="feature-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Global Coverage</h3>
+                    <p>Servers located in India, Singapore, and USA.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-shield-virus"></i></div>
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
                     <h3>DDoS Protection</h3>
-                    <p style="color:var(--text-muted); margin-top:10px; font-size: 0.9rem;">Stay online with enterprise-grade protection against DDoS attacks.</p>
+                    <p>Enterprise-grade protection included with all plans.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-wallet"></i></div>
-                    <h3>Affordable Pricing</h3>
-                    <p style="color:var(--text-muted); margin-top:10px; font-size: 0.9rem;">Premium quality hosting starting at just ₹45/month.</p>
+                    <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                    <h3>24/7 Support</h3>
+                    <p>Our team is always available to help you.</p>
                 </div>
             </div>
         </div>
@@ -665,128 +504,131 @@
     <!-- Pricing -->
     <section class="pricing" id="plans">
         <div class="container">
-            <div class="section-title">
-                <h2>Choose Your <span class="text-gradient">Weapon</span></h2>
-                <p>Select a category. Join Discord to purchase or claim.</p>
+            <div class="section-header">
+                <h2>Pricing Plans</h2>
+                <p>Select the perfect plan for your needs.</p>
             </div>
 
-            <div class="tabs-container">
+            <div class="tabs">
                 <button class="tab-btn active" onclick="openTab('free-mc')">Free Minecraft</button>
-                <button class="tab-btn" onclick="openTab('free-vps')">Free VPS</button>
                 <button class="tab-btn" onclick="openTab('r9')">Ryzen 9</button>
                 <button class="tab-btn" onclick="openTab('amd')">AMD Plans</button>
                 <button class="tab-btn" onclick="openTab('budget-vps')">Budget VPS</button>
+                <button class="tab-btn" onclick="openTab('web-hosting')">Web Hosting</button>
             </div>
 
-            <!-- Content Wrapper -->
+            <!-- Free Minecraft -->
             <div id="free-mc" class="tab-content active">
-                <!-- Cards duplicated logic with new styling -->
                 <div class="plan-card">
-                    <div class="plan-badge">2 INVITES</div>
-                    <div class="plan-header"><div class="plan-title">🏅 Initiate</div><div class="plan-price">Free</div></div>
+                    <div class="plan-name">🏅 Initiate</div>
+                    <div class="plan-price">Free</div>
                     <ul class="plan-features">
-                        <li><i class="fas fa-memory"></i> 2GB RAM</li>
-                        <li><i class="fas fa-microchip"></i> 80% CPU</li>
-                        <li><i class="fas fa-hdd"></i> 4GB NVMe</li>
+                        <li><i class="fas fa-check-circle"></i> 2GB RAM</li>
+                        <li><i class="fas fa-check-circle"></i> 80% CPU</li>
+                        <li><i class="fas fa-check-circle"></i> 4GB NVMe</li>
+                        <li><i class="fas fa-user-friends"></i> 2 Invites Required</li>
                     </ul>
-                    <a href="https://discord.gg/VQcqHQsnv4" class="btn btn-secondary btn-full">Claim via Discord</a>
+                    <a href="https://discord.gg/VQcqHQsnv4" class="btn btn-outline btn-full">Claim Now</a>
+                </div>
+                <div class="plan-card" style="border-color: var(--primary);">
+                    <div class="badge-pop">Recommended</div>
+                    <div class="plan-name">👑 Overseer</div>
+                    <div class="plan-price">Free</div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check-circle"></i> 4GB RAM</li>
+                        <li><i class="fas fa-check-circle"></i> 100% CPU</li>
+                        <li><i class="fas fa-check-circle"></i> 8GB NVMe</li>
+                        <li><i class="fas fa-user-friends"></i> 5 Invites Required</li>
+                    </ul>
+                    <a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Claim Now</a>
                 </div>
                 <div class="plan-card">
-                    <div class="plan-badge">5 INVITES</div>
-                    <div class="plan-header"><div class="plan-title">👑 Overseer</div><div class="plan-price">Free</div></div>
+                    <div class="plan-name">👿 Dominion</div>
+                    <div class="plan-price">Free</div>
                     <ul class="plan-features">
-                        <li><i class="fas fa-memory"></i> 4GB RAM</li>
-                        <li><i class="fas fa-microchip"></i> 100% CPU</li>
-                        <li><i class="fas fa-hdd"></i> 8GB NVMe</li>
+                        <li><i class="fas fa-check-circle"></i> 6GB RAM</li>
+                        <li><i class="fas fa-check-circle"></i> 150% CPU</li>
+                        <li><i class="fas fa-check-circle"></i> 10GB NVMe</li>
+                        <li><i class="fas fa-user-friends"></i> 10 Invites Required</li>
                     </ul>
-                    <a href="https://discord.gg/VQcqHQsnv4" class="btn btn-secondary btn-full">Claim via Discord</a>
-                </div>
-                <div class="plan-card">
-                    <div class="plan-badge">10 INVITES</div>
-                    <div class="plan-header"><div class="plan-title">👿 Dominion</div><div class="plan-price">Free</div></div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-memory"></i> 6GB RAM</li>
-                        <li><i class="fas fa-microchip"></i> 150% CPU</li>
-                        <li><i class="fas fa-hdd"></i> 10GB NVMe</li>
-                    </ul>
-                    <a href="https://discord.gg/VQcqHQsnv4" class="btn btn-secondary btn-full">Claim via Discord</a>
+                    <a href="https://discord.gg/VQcqHQsnv4" class="btn btn-outline btn-full">Claim Now</a>
                 </div>
             </div>
 
-            <div id="free-vps" class="tab-content">
-                <div class="plan-card" style="grid-column: 1/-1; max-width: 450px; margin: 0 auto;">
-                    <div class="plan-badge">15 INVITES</div>
-                    <div class="plan-header"><div class="plan-title">🖥️ VPS Reward</div><div class="plan-price">Free</div></div>
-                    <ul class="plan-features">
-                        <li><i class="fas fa-memory"></i> 8GB RAM</li>
-                        <li><i class="fas fa-microchip"></i> 12 vCore Ryzen</li>
-                        <li><i class="fas fa-hdd"></i> 48GB SSD</li>
-                    </ul>
-                    <a href="https://discord.gg/VQcqHQsnv4" class="btn btn-secondary btn-full">Claim via Discord</a>
-                </div>
-            </div>
-
+            <!-- R9 Plans -->
             <div id="r9" class="tab-content">
-                <!-- Simplified for brevity, keeping design consistent -->
-                <div class="plan-card">
-                    <div class="plan-header"><div class="plan-title">🟤 Dirt</div><div class="plan-price">₹50</div></div>
-                    <ul class="plan-features"><li>2GB RAM</li><li>150% CPU</li><li>15GB Disk</li></ul>
-                    <a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy Now</a>
-                </div>
-                <div class="plan-card">
-                    <div class="plan-header"><div class="plan-title">🪵 Wood</div><div class="plan-price">₹90</div></div>
-                    <ul class="plan-features"><li>4GB RAM</li><li>200% CPU</li><li>20GB Disk</li></ul>
-                    <a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy Now</a>
-                </div>
-                <div class="plan-card">
-                    <div class="plan-header"><div class="plan-title">🪨 Stone</div><div class="plan-price">₹130</div></div>
-                    <ul class="plan-features"><li>6GB RAM</li><li>250% CPU</li><li>30GB Disk</li></ul>
-                    <a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy Now</a>
-                </div>
-                <div class="plan-card">
-                    <div class="plan-header"><div class="plan-title">⛓️ Iron</div><div class="plan-price">₹240</div></div>
-                    <ul class="plan-features"><li>8GB RAM</li><li>300% CPU</li><li>40GB Disk</li></ul>
-                    <a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy Now</a>
-                </div>
-                <div class="plan-card">
-                    <div class="plan-header"><div class="plan-title">🥇 Gold</div><div class="plan-price">₹320</div></div>
-                    <ul class="plan-features"><li>12GB RAM</li><li>350% CPU</li><li>70GB Disk</li></ul>
-                    <a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy Now</a>
-                </div>
-                <div class="plan-card">
-                    <div class="plan-header"><div class="plan-title">💚 Emerald</div><div class="plan-price">₹420</div></div>
-                    <ul class="plan-features"><li>16GB RAM</li><li>400% CPU</li><li>100GB Disk</li></ul>
-                    <a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy Now</a>
-                </div>
-                 <div class="plan-card">
-                    <div class="plan-header"><div class="plan-title">💎 Diamond</div><div class="plan-price">₹600</div></div>
-                    <ul class="plan-features"><li>32GB RAM</li><li>800% CPU</li><li>150GB Disk</li></ul>
-                    <a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy Now</a>
-                </div>
-                 <div class="plan-card">
-                    <div class="plan-header"><div class="plan-title">🔥 Netherite</div><div class="plan-price">₹899</div></div>
-                    <ul class="plan-features"><li>64GB RAM</li><li>600% CPU</li><li>200GB Disk</li></ul>
-                    <a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy Now</a>
-                </div>
+                <div class="plan-card"><div class="plan-name">🟤 Dirt</div><div class="plan-price">₹50</div><ul class="plan-features"><li>2GB RAM</li><li>150% CPU</li><li>15GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-outline btn-full">Buy</a></div>
+                <div class="plan-card" style="border-color: var(--primary);"><div class="badge-pop">Popular</div><div class="plan-name">🪵 Wood</div><div class="plan-price">₹90</div><ul class="plan-features"><li>4GB RAM</li><li>200% CPU</li><li>20GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy</a></div>
+                <div class="plan-card"><div class="plan-name">🪨 Stone</div><div class="plan-price">₹130</div><ul class="plan-features"><li>6GB RAM</li><li>250% CPU</li><li>30GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-outline btn-full">Buy</a></div>
+                <div class="plan-card"><div class="plan-name">⛓️ Iron</div><div class="plan-price">₹240</div><ul class="plan-features"><li>8GB RAM</li><li>300% CPU</li><li>40GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-outline btn-full">Buy</a></div>
+                <div class="plan-card"><div class="plan-name">🥇 Gold</div><div class="plan-price">₹320</div><ul class="plan-features"><li>12GB RAM</li><li>350% CPU</li><li>70GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-outline btn-full">Buy</a></div>
+                <div class="plan-card"><div class="plan-name">💚 Emerald</div><div class="plan-price">₹420</div><ul class="plan-features"><li>16GB RAM</li><li>400% CPU</li><li>100GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-outline btn-full">Buy</a></div>
+                <div class="plan-card"><div class="plan-name">💎 Diamond</div><div class="plan-price">₹600</div><ul class="plan-features"><li>32GB RAM</li><li>800% CPU</li><li>150GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-outline btn-full">Buy</a></div>
+                <div class="plan-card"><div class="plan-name">🔥 Netherite</div><div class="plan-price">₹899</div><ul class="plan-features"><li>64GB RAM</li><li>600% CPU</li><li>200GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-outline btn-full">Buy</a></div>
             </div>
 
+            <!-- AMD Plans -->
             <div id="amd" class="tab-content">
-                <div class="plan-card"><div class="plan-header"><div class="plan-title">🟤 Dirt</div><div class="plan-price">₹45</div></div><ul class="plan-features"><li>2GB RAM</li><li>150% CPU</li><li>15GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy Now</a></div>
-                <div class="plan-card"><div class="plan-header"><div class="plan-title">🪵 Wood</div><div class="plan-price">₹80</div></div><ul class="plan-features"><li>4GB RAM</li><li>200% CPU</li><li>20GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy Now</a></div>
-                <div class="plan-card"><div class="plan-header"><div class="plan-title">🪨 Stone</div><div class="plan-price">₹110</div></div><ul class="plan-features"><li>6GB RAM</li><li>250% CPU</li><li>30GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy Now</a></div>
-                <div class="plan-card"><div class="plan-header"><div class="plan-title">⛓️ Iron</div><div class="plan-price">₹190</div></div><ul class="plan-features"><li>8GB RAM</li><li>300% CPU</li><li>40GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy Now</a></div>
-                <div class="plan-card"><div class="plan-header"><div class="plan-title">🥇 Gold</div><div class="plan-price">₹220</div></div><ul class="plan-features"><li>12GB RAM</li><li>350% CPU</li><li>70GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy Now</a></div>
-                <div class="plan-card"><div class="plan-header"><div class="plan-title">💚 Emerald</div><div class="plan-price">₹280</div></div><ul class="plan-features"><li>16GB RAM</li><li>400% CPU</li><li>100GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy Now</a></div>
-                <div class="plan-card"><div class="plan-header"><div class="plan-title">💎 Diamond</div><div class="plan-price">₹310</div></div><ul class="plan-features"><li>32GB RAM</li><li>800% CPU</li><li>150GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy Now</a></div>
-                <div class="plan-card"><div class="plan-header"><div class="plan-title">🔥 Netherite</div><div class="plan-price">₹400</div></div><ul class="plan-features"><li>64GB RAM</li><li>600% CPU</li><li>200GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy Now</a></div>
-                 <div class="plan-card"><div class="plan-header"><div class="plan-title">🧱 Bedrock</div><div class="plan-price">₹999</div></div><ul class="plan-features"><li>128GB RAM</li><li>800% CPU</li><li>500GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy Now</a></div>
+                <div class="plan-card"><div class="plan-name">🟤 Dirt</div><div class="plan-price">₹45</div><ul class="plan-features"><li>2GB RAM</li><li>150% CPU</li><li>15GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-outline btn-full">Buy</a></div>
+                <div class="plan-card" style="border-color: var(--primary);"><div class="badge-pop">Best Value</div><div class="plan-name">🪵 Wood</div><div class="plan-price">₹80</div><ul class="plan-features"><li>4GB RAM</li><li>200% CPU</li><li>20GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy</a></div>
+                <div class="plan-card"><div class="plan-name">🪨 Stone</div><div class="plan-price">₹110</div><ul class="plan-features"><li>6GB RAM</li><li>250% CPU</li><li>30GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-outline btn-full">Buy</a></div>
+                <div class="plan-card"><div class="plan-name">⛓️ Iron</div><div class="plan-price">₹190</div><ul class="plan-features"><li>8GB RAM</li><li>300% CPU</li><li>40GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-outline btn-full">Buy</a></div>
+                <div class="plan-card"><div class="plan-name">🥇 Gold</div><div class="plan-price">₹220</div><ul class="plan-features"><li>12GB RAM</li><li>350% CPU</li><li>70GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-outline btn-full">Buy</a></div>
+                <div class="plan-card"><div class="plan-name">💚 Emerald</div><div class="plan-price">₹280</div><ul class="plan-features"><li>16GB RAM</li><li>400% CPU</li><li>100GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-outline btn-full">Buy</a></div>
+                <div class="plan-card"><div class="plan-name">💎 Diamond</div><div class="plan-price">₹310</div><ul class="plan-features"><li>32GB RAM</li><li>800% CPU</li><li>150GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-outline btn-full">Buy</a></div>
+                <div class="plan-card"><div class="plan-name">🔥 Netherite</div><div class="plan-price">₹400</div><ul class="plan-features"><li>64GB RAM</li><li>600% CPU</li><li>200GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-outline btn-full">Buy</a></div>
+                <div class="plan-card"><div class="plan-name">🧱 Bedrock</div><div class="plan-price">₹999</div><ul class="plan-features"><li>128GB RAM</li><li>800% CPU</li><li>500GB Disk</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-outline btn-full">Buy</a></div>
             </div>
 
+            <!-- Budget VPS -->
             <div id="budget-vps" class="tab-content">
-                <div class="plan-card"><div class="plan-header"><div class="plan-title">VPS 1</div><div class="plan-price">₹390</div></div><ul class="plan-features"><li>4GB RAM</li><li>3 vCPU</li><li>80GB SSD</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy Now</a></div>
-                <div class="plan-card"><div class="plan-header"><div class="plan-title">VPS 2</div><div class="plan-price">₹790</div></div><ul class="plan-features"><li>16GB RAM</li><li>4 vCPU</li><li>120GB SSD</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy Now</a></div>
-                <div class="plan-card"><div class="plan-header"><div class="plan-title">VPS 3</div><div class="plan-price">₹1125</div></div><ul class="plan-features"><li>32GB RAM</li><li>6 vCPU</li><li>399GB SSD</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy Now</a></div>
-                <div class="plan-card"><div class="plan-header"><div class="plan-title">VPS 4</div><div class="plan-price">₹1699</div></div><ul class="plan-features"><li>64GB RAM</li><li>8 vCPU</li><li>700GB SSD</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-primary btn-full">Buy Now</a></div>
+                <div class="plan-card"><div class="plan-name">💻 VPS 1</div><div class="plan-price">₹390</div><ul class="plan-features"><li>4GB RAM</li><li>3 vCPU Xeon</li><li>80GB SSD</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-outline btn-full">Buy</a></div>
+                <div class="plan-card"><div class="plan-name">💻 VPS 2</div><div class="plan-price">₹790</div><ul class="plan-features"><li>16GB RAM</li><li>4 vCPU Xeon</li><li>120GB SSD</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-outline btn-full">Buy</a></div>
+                <div class="plan-card"><div class="plan-name">💻 VPS 3</div><div class="plan-price">₹1125</div><ul class="plan-features"><li>32GB RAM</li><li>6 vCPU Xeon</li><li>399GB SSD</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-outline btn-full">Buy</a></div>
+                <div class="plan-card"><div class="plan-name">💻 VPS 4</div><div class="plan-price">₹1699</div><ul class="plan-features"><li>64GB RAM</li><li>8 vCPU Xeon</li><li>700GB SSD</li></ul><a href="https://discord.gg/VQcqHQsnv4" class="btn btn-outline btn-full">Buy</a></div>
+            </div>
+
+            <!-- WEB HOSTING PLANS (NEW) -->
+            <div id="web-hosting" class="tab-content">
+                <!-- Starter Web Plan -->
+                <div class="plan-card web-card">
+                    <div class="plan-name">🌐 Starter Web Plan</div>
+                    <div class="plan-price">₹30 <span>/ month</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-hdd"></i> Storage: 10GB NVMe</li>
+                        <li><i class="fas fa-infinity"></i> Bandwidth: Unlimited</li>
+                        <li><i class="fas fa-database"></i> Databases: 1 MySQL</li>
+                        <li><i class="fas fa-globe"></i> Sub-Domains: 1</li>
+                        <li><i class="fas fa-envelope"></i> Email Accounts: 1</li>
+                    </ul>
+                    <a href="https://discord.com/channels/1452511757426888796/1452511758542573611" target="_blank" class="btn btn-outline btn-full">Buy Now</a>
+                </div>
+
+                <!-- Premium Web Plan -->
+                <div class="plan-card web-card" style="border-color: var(--secondary); transform: scale(1.02); box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                    <div class="badge-pop">Recommended</div>
+                    <div class="plan-name">🌐 Premium Web Plan</div>
+                    <div class="plan-price">₹79 <span>/ month</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-hdd"></i> Storage: 25GB NVMe</li>
+                        <li><i class="fas fa-infinity"></i> Bandwidth: Unlimited</li>
+                        <li><i class="fas fa-database"></i> Databases: 1 MySQL</li>
+                        <li><i class="fas fa-globe"></i> Sub-Domains: 2</li>
+                        <li><i class="fas fa-envelope"></i> Email Accounts: 2</li>
+                    </ul>
+                    <a href="https://discord.com/channels/1452511757426888796/1452511758542573611" target="_blank" class="btn btn-primary btn-full">Buy Now</a>
+                </div>
+
+                <!-- Features Box -->
+                <div class="plan-card" style="background: rgba(99, 102, 241, 0.05); border: 1px dashed var(--secondary); justify-content: center;">
+                    <h3 style="color: #fff; margin-bottom: 20px; font-size: 1.4rem;">✨ Web Hosting Features</h3>
+                    <div class="web-features-grid">
+                        <div class="web-feat-item"><i class="fas fa-lock"></i> SSL Free</div>
+                        <div class="web-feat-item"><i class="fas fa-shield-alt"></i> DDoS Protection</div>
+                        <div class="web-feat-item"><i class="fas fa-check-double"></i> 99.9% Uptime</div>
+                        <div class="web-feat-item"><i class="fas fa-cogs"></i> cPanel Available</div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -795,19 +637,19 @@
     <!-- Founders -->
     <section class="founders" id="founders">
         <div class="container">
-            <div class="section-title">
-                <h2>Meet The <span class="text-gradient">Founders</span></h2>
+            <div class="section-header">
+                <h2>Our Founders</h2>
             </div>
-            <div class="founders-grid">
+            <div class="founder-grid">
                 <div class="founder-card">
                     <img src="https://cdn.discordapp.com/avatars/1366064855819354134/89ad0bcc64a035621f8629d7bfc0e849.webp?size=240" class="founder-img" alt="Himanshu Gurjar">
                     <h3>Himanshu Gurjar</h3>
-                    <p style="color: var(--neon-purple); font-weight: 600;">Founder</p>
+                    <p style="color: var(--primary); font-size: 0.85rem; font-weight: 600; margin-top: 5px;">Founder</p>
                 </div>
                 <div class="founder-card">
                     <img src="https://cdn.discordapp.com/avatars/1452291700553678961/05f8d48054d96154630780aca287aa8a.webp?size=240" class="founder-img" alt="SK Mohsin">
                     <h3>SK Mohsin</h3>
-                    <p style="color: var(--neon-purple); font-weight: 600;">Founder</p>
+                    <p style="color: var(--primary); font-size: 0.85rem; font-weight: 600; margin-top: 5px;">Co-Founder</p>
                 </div>
             </div>
         </div>
@@ -817,24 +659,23 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <a href="#" class="logo">
-                    <img src="https://cdn.discordapp.com/icons/1452511757426888796/c1f3808bc6115a73a216918c212ac78d.png?size=1024" alt="Logo" style="width: 40px;">
-                    <span style="font-size: 1.5rem;">JavixNodes</span>
+                <a href="#" class="logo" style="justify-content: center; margin-bottom: 20px;">
+                    <img src="https://cdn.discordapp.com/icons/1452511757426888796/c1f3808bc6115a73a216918c212ac78d.png?size=1024" alt="Logo" style="width: 30px;">
+                    Javix<span class="text-gradient">Nodes</span>
                 </a>
-                <a href="mailto:himanshugurjar@zohomail.in" class="email-link">
-                    <i class="fas fa-envelope"></i> himanshugurjar@zohomail.in
-                </a>
-                <div class="social-links">
-                    <a href="https://discord.gg/VQcqHQsnv4" target="_blank" class="social-btn"><i class="fab fa-discord"></i></a>
-                    <a href="https://panel.javixnode.fun" target="_blank" class="social-btn"><i class="fas fa-server"></i></a>
-                    <a href="mailto:himanshugurjar@zohomail.in" class="social-btn"><i class="fas fa-envelope"></i></a>
+                <a href="mailto:himanshugurjar@zohomail.in" class="email-text">himanshugurjar@zohomail.in</a>
+                <div class="footer-links">
+                    <a href="https://discord.gg/VQcqHQsnv4" target="_blank">Discord</a>
+                    <a href="https://panel.javixnode.fun" target="_blank">Panel</a>
+                    <a href="#plans">Pricing</a>
+                    <a href="#features">Features</a>
                 </div>
             </div>
-            <p style="color: #444; font-size: 0.85rem;">&copy; 2024 JavixNodes. All Rights Reserved.</p>
+            <p class="copyright">&copy; 2024 JavixNodes. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- JS -->
+    <!-- Scripts -->
     <script>
         function openTab(id) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
@@ -842,13 +683,6 @@
             document.getElementById(id).classList.add('active');
             event.target.classList.add('active');
         }
-
-        // Mobile Menu
-        const menu = document.querySelector('.mobile-menu-btn');
-        const nav = document.querySelector('.nav-links');
-        menu.addEventListener('click', () => nav.classList.toggle('active'));
     </script>
 </body>
-
 </html>
-
